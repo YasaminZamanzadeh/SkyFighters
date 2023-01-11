@@ -38,4 +38,9 @@ public class PlayerMovment : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x , -1.45f , 1.6f);
         transform.position= pos ;
   }
+  private void OnTriggerEnter2D(Collider2D collision) {
+       if(collision.gameObject.tag == "Adversary"){
+           Time.timeScale = 0;        
+        }
+    }
 }

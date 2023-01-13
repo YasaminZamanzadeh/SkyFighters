@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
 {
+     
+   
+
+   public Transform transform;
    public float rotationSpeed = 0.5f;
    public float speed = 3.5f;
-   public Transform transform;
+   public ScoreManeger Score;
+   
     void Start()
     {
 
@@ -35,12 +40,22 @@ public class PlayerMovment : MonoBehaviour
   void Clamp()
   {
       Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x , -1.45f , 1.6f);
+        pos.x = Mathf.Clamp(pos.x ,-1.64f , 1.78f);
         transform.position= pos ;
   }
   private void OnTriggerEnter2D(Collider2D collision) {
        if(collision.gameObject.tag == "Adversary"){
            Time.timeScale = 0;        
         }
-    }
-}
+        
+        if(collision.gameObject.tag == "Potion"){
+           Score.score += 10;
+          Destroy(collision.gameObject); 
+           }
+      if(collision.gameObject.tag == "Poison"){
+           Score.score -= 10;
+          Destroy(collision.gameObject); 
+
+     }
+  }
+} 

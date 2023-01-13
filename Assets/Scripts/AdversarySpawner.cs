@@ -18,7 +18,7 @@ public class AdversarySpawner : MonoBehaviour
      void Adversary()
     {
         int rand = Random.Range(0,Adversaries.Length);
-        float rndPosition = Random.Range(-1.45f , 1.6f);
+        float rndPosition = Random.Range(-1.64f , 1.78f);
          Instantiate(Adversaries[rand],new Vector3(rndPosition,transform.position.y,transform.position.z),Quaternion.Euler(0,0,0));       
 
     }

@@ -527,9 +527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   potionsPrefabs:
   - {fileID: 6938953935109120067, guid: 2dbd278c896f3e244be92329941626e1, type: 3}
-  - {fileID: 4616420393616556113, guid: d0c4c82354685f44dbd3bc58003fd4ff, type: 3}
-  - {fileID: 1686447496154613652, guid: 10bdc7fe7e25ce14ba37b09a76e959ed, type: 3}
   - {fileID: 6668336592350690575, guid: 8670c4c45b8e67342b396c33cb729cde, type: 3}
+  - {fileID: 1119274405620171013, guid: 5c30fd80da87c33438e3bd36f06d573e, type: 3}
+  - {fileID: 8710014719148565180, guid: 5befd5af72d403a4d8bf6d9ad1337c1f, type: 3}
 --- !u!1 &1513777278
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ScoreManeger : MonoBehaviour
 { public int score = 0;
+public int highScore;
    
     public Text scoreText;
   
     void Start()
     {
         StartCoroutine(Score());
-    
+        highScore = 0;
+
         
     }
 
@@ -19,7 +21,11 @@ public class ScoreManeger : MonoBehaviour
     void Update()
     {
       scoreText.text = score.ToString();
-     
+      if (score > highScore)
+      {
+        highScore = score;
+        Debug.Log(highScore);
+      }
        }
         
     

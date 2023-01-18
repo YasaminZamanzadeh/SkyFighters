@@ -25,7 +25,7 @@ public class PotionSpawner : MonoBehaviour
         while(true)
         {
             int time = Random.Range(0,20);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(time);
             potionSpawn();
         }
     }

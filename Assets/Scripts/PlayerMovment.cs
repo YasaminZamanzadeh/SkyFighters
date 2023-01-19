@@ -54,6 +54,8 @@ public class PlayerMovment : MonoBehaviour
            }
       if(collision.gameObject.tag == "Poison"){
            Score.score -= 10;
+           if(Score.score < 0)
+          { Score.score = 0; }
           Destroy(collision.gameObject); 
 
      }

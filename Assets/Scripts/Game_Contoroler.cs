@@ -14,6 +14,7 @@ public class Game_Contoroler : MonoBehaviour
     public GameObject gamePausePanel;
     public GameObject gamePauseButton;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,4 +44,5 @@ public class Game_Contoroler : MonoBehaviour
         gamePausePanel.SetActive(false);
         gamePauseButton.SetActive(true);
     }
+  
 }

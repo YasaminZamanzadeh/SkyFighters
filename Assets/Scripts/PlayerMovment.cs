@@ -11,6 +11,9 @@ public class PlayerMovment : MonoBehaviour
    public GameObject GameOverPanel;
    public AudioSource PoisonSound;
    public AudioSource potionSound;
+   public AudioSource GameOverSound;
+   public GameObject bulletprefabs;
+   public float bulletspeed;
    
     void Start()
     {
@@ -20,6 +23,7 @@ public class PlayerMovment : MonoBehaviour
     void Update()
     {
        Movment();
+       Shooting();
        Clamp(); 
     }
    void Movment()
@@ -38,6 +42,15 @@ public class PlayerMovment : MonoBehaviour
         }
 
   }
+  void Shooting(){
+        if(Input.GetKeyDown(KeyCode.Space)){
+            GameObject bullet = Instantiate(bulletprefabs);
+            bullet.transform.SetParent(transform.parent);
+            bullet.transform.position = transform.position;
+            bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0, bulletspeed , transform.position.z);
+            Destroy(bullet, 5);
+        }
+    }
   void Clamp()
   {
       Vector3 pos = transform.position;
@@ -47,7 +60,8 @@ public class PlayerMovment : MonoBehaviour
   private void OnTriggerEnter2D(Collider2D collision) {
        if(collision.gameObject.tag == "Adversary"){
            Time.timeScale = 0; 
-           GameOverPanel.SetActive(true);       
+           GameOverPanel.SetActive(true);  
+           GameOverSound.Play();
         }
         
         if(collision.gameObject.tag == "Potion"){

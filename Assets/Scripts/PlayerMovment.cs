@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
 {
-     
-   
-
    public Transform transform;
    public float rotationSpeed = 0.5f;
    public float speed = 3.5f;
    public ScoreManeger Score;
+   public GameObject GameOverPanel;
+   public AudioSource PoisonSound;
+   public AudioSource potionSound;
    
     void Start()
     {
-
+      GameOverPanel.SetActive(false);
+      Time.timeScale = 1;
     }
     void Update()
     {
@@ -45,14 +46,17 @@ public class PlayerMovment : MonoBehaviour
   }
   private void OnTriggerEnter2D(Collider2D collision) {
        if(collision.gameObject.tag == "Adversary"){
-           Time.timeScale = 0;        
+           Time.timeScale = 0; 
+           GameOverPanel.SetActive(true);       
         }
         
         if(collision.gameObject.tag == "Potion"){
+         potionSound.Play();
            Score.score += 10;
           Destroy(collision.gameObject); 
            }
       if(collision.gameObject.tag == "Poison"){
+           PoisonSound.Play();
            Score.score -= 10;
            if(Score.score < 0)
           { Score.score = 0; }
